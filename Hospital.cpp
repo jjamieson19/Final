@@ -31,11 +31,11 @@ void Hospital::setRate(int rate)
 void Hospital::setStaff(int nurses, int doctors) //Assign set number of nurses and doctors to staff
 {
 	for (int i = 0; i < nurses; i++) { //Put nurses at front of staff to access lower priority cases sooner
-		Caregiver * staffMember = new Nurse();
+		Caregiver* staffMember = new Nurse(this);
 		staff.push_back(staffMember);
 	}
 	for (int i = 0; i < doctors; i++) { //Put doctors at back of staff to keep open for high priority cases
-		Caregiver * staffMember = new Doctor();
+		Caregiver* staffMember = new Doctor(this);
 		staff.push_back(staffMember);
 	}
 }

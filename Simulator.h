@@ -48,6 +48,7 @@ public:
 	
 	void collectData() { //Allow the user to input necessary values
 		cout << "Welcome to the " << hospital->getName() << " emergency room." << endl;
+		
 		cout << "How many nurses are working in the ER?";
 		int nurse_num;
 		cin >> nurse_num;
@@ -57,6 +58,7 @@ public:
 		hospital->setStaff(nurse_num, doc_num);
 		cout << "What is the average arrival rate of patients per hour?";
 		int rate;
+
 	}
 	void runSimulation() {
 		for (clock = 0; clock < total_time; ++clock)

@@ -2,7 +2,7 @@
 #define HOSPITAL_H_
 #include <cstdlib>
 #include <ctime>
-#include  <iostream>
+#include <iostream>
 #include <map>
 #include <queue>
 #include <string>
@@ -13,14 +13,14 @@
 #include "Nurse.h"
 #include "Patient.h"
 #include "Random.h"
+
 extern std::vector<Patient> citizens;
 extern Random my_random;
-using namespace std;
 class Hospital {
 private:
 	std::string _name;
 	std::priority_queue<Patient> waiting_room;
-	std::vector<Caregiver*> staff;
+	std::vector<Caregiver *> staff;
 	int clock;
 	int arrival_rate; //How often do new cases arrive?
 	std::multimap<std::string, int> records; //Store records on patients name and severity of illness

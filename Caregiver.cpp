@@ -1,10 +1,11 @@
 #include "Caregiver.h"
 
-Caregiver::Caregiver(int priority, int treatment)
+Caregiver::Caregiver(int priority, int treatment, Hospital work)
 {
 	PriorityMax = priority;
 	TreatmentTime = treatment;
 	busy = false;
+	hospital = &work;
 }
 
 bool Caregiver::checkStatus()
@@ -18,4 +19,9 @@ void Caregiver::changeStatus()
 		busy = false;
 	else
 		busy = true;
+}
+
+void Caregiver::setHospital(Hospital * here)
+{
+	hospital = here;
 }

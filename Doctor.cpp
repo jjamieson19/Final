@@ -1,6 +1,6 @@
-#include "Nurse.h"
+#include "Doctor.h"
 
-void Nurse::treatPatient(Patient patient, int time)
+void Doctor::treatPatient(Patient patient, int time)
 {
 	if (busy) //If there is currently being a patient treated
 	{
@@ -10,6 +10,6 @@ void Nurse::treatPatient(Patient patient, int time)
 			patient.setSeverity(0); //Patient is cured
 		}
 	}
-		int time_needed = my_random.next_int(this->TreatmentTime);
-		patient.setTreatment(time_needed);
+	int time_needed = my_random.next_int(this->TreatmentTime);
+	patient.setTreatment(time_needed);
 }

@@ -18,6 +18,5 @@ public:
 	void setSeverity(int prio);
 	void setTime(int clock);
 	void setTreatment(int length);
-	
 };
 #endif // !PATIENT_H_
