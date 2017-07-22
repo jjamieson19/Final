@@ -19,7 +19,7 @@ public:
 	}
 
 	double next_double(){ //Returns a random value between 0 and 1
-		return double(rand()) / RAND_MAX;
+		return (double(rand()) / RAND_MAX);
 	}
 };
 #endif // ! RANDOM_H_

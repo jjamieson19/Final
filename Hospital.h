@@ -19,24 +19,25 @@ extern Random my_random;
 class Hospital {
 private:
 	std::string _name;
-	std::priority_queue<Patient> waiting_room;
 	std::vector<Caregiver *> staff;
-	int clock;
-	int arrival_rate; //How often do new cases arrive?
+	double arrival_rate; //How often do new cases arrive?
 	std::multimap<std::string, int> records; //Store records on patients name and severity of illness
 	int num_served; //How many patients have come through the hospital?
-	int avg_time; //How long was the average visit?
+	double avg_time; //How long was the average visit?
 public:
+	std::priority_queue<Patient> waiting_room;
 	Hospital(std::string name);
 	std::string getName();
-	void triage(Patient new_arrival);
-	void setRate(int rate);
+	void triage(Patient &new_arrival);
+	void setRate(double rate);
 	void setStaff(int nurses, int doctors);
-	void admitPatient();
+	void admitPatient(int clock);
 	void checkArrivals(int clock);
 	void recordVisit(Patient treated, int clock);
 	int calc_time();
 	void display_records();
 	void search_records(std::string name);
+	void check_patients(int clock);
+	int getNum();
 };
 #endif // !HOSPITAL_H_

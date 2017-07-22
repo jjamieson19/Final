@@ -1,8 +1,15 @@
 #include "Patient.h"
 
+Patient::Patient()
+{
+	_name = "";
+}
+
 Patient::Patient(std::string name)
 {
 	_name = name;
+	arrival_time = 0;
+	severity = 0;
 }
 
 int Patient::getArrival()
@@ -32,18 +39,18 @@ void Patient::setSeverity(int prio)
 
 bool Patient::operator<(const Patient &other) const
 {
-	if (severity<other.severity)
+	if (severity < other.severity)
 		return true;
 	else
 		return false;
 }
 
-void Patient::setTime(int time)
+void Patient::setTime(int &time)
 {
 	arrival_time = time;
 }
 
-void Patient::setTreatment(int length)
+void Patient::setTreatment(int &length)
 {
 	treatment_time = length;
 }

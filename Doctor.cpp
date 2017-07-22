@@ -1,15 +1,23 @@
 #include "Doctor.h"
 
-void Doctor::treatPatient(Patient patient, int time)
+void Doctor::treatPatient(int time)
 {
 	if (busy) //If there is currently being a patient treated
 	{
-		if ((time - patient.getTreatmentTime()) > (patient.getTreatmentTime()))
+		if ((time - in_care.getTreatmentTime()) > (in_care.getTreatmentTime()))
 		{
-			hospital->recordVisit(patient, time);
-			patient.setSeverity(0); //Patient is cured
+			hospital->recordVisit(in_care, time);
+			this->set_care(Patient());
+			changeStatus(); //Caregiver is open
+			if (this->checkStatus() == true)
+				std::cout << "Failure to change" << std::endl;
 		}
 	}
-	int time_needed = my_random.next_int(this->TreatmentTime);
-	patient.setTreatment(time_needed);
+	if (!busy) //If there is no patient currently
+	{
+		int time_needed = my_random.next_int(this->TreatmentTime);
+		in_care.setTreatment(time_needed);
+		this->changeStatus(); //Caregiver is now busy with patient
+	}
+	
 }
